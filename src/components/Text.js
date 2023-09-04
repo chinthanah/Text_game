@@ -11,6 +11,11 @@ export default function Text(props) {
     setText(newText);
   };
 
+  const handleClearClick = () => {
+    let newText = " ";
+    setText(newText);
+  };
+
   const handleOnChange = (event) => {
     setText(event.target.value);
   };
@@ -19,20 +24,23 @@ export default function Text(props) {
     <>
       <div>
         <h1>{props.heading}</h1>
-        <div className="mb-3">
+        <div className="mb-5">
           <textarea
             className="form-control"
             value={text}
             onChange={handleOnChange}
             id="exampleFormControlTextarea1"
-            rows="8"
+            rows="6"
           ></textarea>
         </div>
-        <button className="btn btn-primary" onClick={handleUpClick}>
+        <button className="btn btn-dark" onClick={handleUpClick}>
           Convert to Uppercase
         </button>
-        <button className="btn btn-primary mx-4" onClick={handleLowClick}>
+        <button className="btn btn-dark mx-2" onClick={handleLowClick}>
           Convert to Lowercase
+        </button>
+        <button className="btn btn-dark mx-2" onClick={handleClearClick}>
+          Clear
         </button>
       </div>
 
@@ -43,6 +51,7 @@ export default function Text(props) {
         </p>
         <p>{0.008 * text.split(" ").length} minutes read</p>
         <h2>Preview</h2>
+        <p>{text}</p>
       </div>
     </>
   );
