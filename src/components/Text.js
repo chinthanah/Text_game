@@ -2,8 +2,12 @@ import React, { useState } from "react";
 
 export default function Text(props) {
   const handleUpClick = () => {
-    console.log("Uppercase button clicked" + text);
     let newText = text.toUpperCase();
+    setText(newText);
+  };
+
+  const handleLowClick = () => {
+    let newText = text.toLowerCase();
     setText(newText);
   };
 
@@ -27,6 +31,9 @@ export default function Text(props) {
         <button className="btn btn-primary" onClick={handleUpClick}>
           Convert to Uppercase
         </button>
+        <button className="btn btn-primary mx-4" onClick={handleLowClick}>
+          Convert to Lowercase
+        </button>
       </div>
 
       <div className="count">
@@ -35,6 +42,7 @@ export default function Text(props) {
           {text.split(" ").length} words and {text.length} characters
         </p>
         <p>{0.008 * text.split(" ").length} minutes read</p>
+        <h2>Preview</h2>
       </div>
     </>
   );
