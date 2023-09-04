@@ -8,7 +8,7 @@ export default function Text(props) {
   };
 
   const handleOnChange = (event) => {
-    console.log("On change");
+    console.log("On change click");
     setText(event.target.value);
   };
   const [text, setText] = useState("enter text here");
