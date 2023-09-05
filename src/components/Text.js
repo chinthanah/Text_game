@@ -19,6 +19,25 @@ export default function Text(props) {
   const handleOnChange = (event) => {
     setText(event.target.value);
   };
+
+  //   const handleReverseText = () => {
+  //     let t = document.getElementById("exampleFormControlTextarea1");
+  //     let newText = t.split(" ").reverse().join(" ");
+  //     console.log(newText); // Add this line for debugging
+  //     setText(newText);
+  //   };
+
+  const handleCopyText = () => {
+    let text = document.getElementById("exampleFormControlTextarea1");
+    text.select();
+    navigator.clipboard.writeText(text.value);
+  };
+
+  const handleExtraSpace = () => {
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(" "));
+  };
+
   const [text, setText] = useState("enter text here");
   return (
     <>
@@ -41,6 +60,15 @@ export default function Text(props) {
         </button>
         <button className="btn btn-dark mx-2" onClick={handleClearClick}>
           Clear
+        </button>
+        {/* <button className="btn btn-dark mx-2" onClick={handleReverseText}>
+          Reverse Text
+        </button> */}
+        <button className="btn btn-dark mx-2" onClick={handleCopyText}>
+          Copy
+        </button>
+        <button className="btn btn-dark mx-2" onClick={handleExtraSpace}>
+          Clear extra spaces
         </button>
       </div>
 
