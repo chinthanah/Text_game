@@ -4,8 +4,8 @@ import Proptypes from "prop-types";
 export default function Navbar(props) {
   return (
     <nav
-      className={`navbar navbar-expand-lg navbar-${props.mode} bg-body-tertiary`}
-      data-bs-theme="dark"
+      className={`navbar navbar-expand-lg bg-${props.mode}`}
+      data-bs-theme={`${props.mode}`}
     >
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
@@ -35,7 +35,7 @@ export default function Navbar(props) {
               </a>
             </li>
           </ul>
-          {/* <form className="d-flex" role="search">
+          <form className="d-flex" role="search">
             <input
               className="form-control me-2"
               type="search"
@@ -45,24 +45,7 @@ export default function Navbar(props) {
             <button className="btn btn-outline-success" type="submit">
               Search
             </button>
-          </form> */}
-
-          <div
-            class={`form-check form-switch text-${
-              props.mode === "light" ? "dark" : "light"
-            }`}
-          >
-            <input
-              class="form-check-input"
-              onClick={props.toggleMode}
-              type="checkbox"
-              role="switch"
-              id="flexSwitchCheckDefault"
-            />
-            <label class="form-check-label" for="flexSwitchCheckDefault">
-              Enable dark mode
-            </label>
-          </div>
+          </form>
         </div>
       </div>
     </nav>
