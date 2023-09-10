@@ -5,10 +5,17 @@ import Navbar from "./components/Navbar";
 import Text from "./components/Text";
 
 function App() {
-  const [mode, setMode] = useState("light");
+  const [mode, setMode] = useState("dark");
+  const toggleswitch = () => {
+    if (mode == "dark") {
+      setMode("light");
+    } else {
+      setMode("dark");
+    }
+  };
   return (
     <>
-      <Navbar title="textUtils" mode={mode} />
+      <Navbar title="textUtils" mode={mode} toggleswitch={toggleswitch} />
       <div className="container my-4">
         <Text heading="Enter the text to analyze" />
       </div>
