@@ -7,10 +7,12 @@ import Text from "./components/Text";
 function App() {
   const [mode, setMode] = useState("dark");
   const toggleswitch = () => {
-    if (mode == "dark") {
+    if (mode === "dark") {
       setMode("light");
+      document.body.style.backgroundColor = "white";
     } else {
       setMode("dark");
+      document.body.style.backgroundColor = "grey";
     }
   };
   return (

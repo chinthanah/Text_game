@@ -41,17 +41,33 @@ export default function Text(props) {
   const [text, setText] = useState("enter text here");
   return (
     <>
-      <div>
+      <div
+        className="container"
+        style={{
+          // backgroundColor: props.mode === "dark" ? "grey" : "white",
+          color: props.mode === "dark" ? "white" : "grey",
+        }}
+      >
         <h1>{props.heading}</h1>
         <div className="mb-5">
           <textarea
             className="form-control"
             value={text}
             onChange={handleOnChange}
+            style={{
+              backgroundColor: props.mode === "dark" ? "white" : "grey",
+              color: props.mode === "dark" ? "grey" : "white",
+            }}
             id="exampleFormControlTextarea1"
             rows="6"
           ></textarea>
         </div>
+      </div>
+      <div
+      // style={{
+      //   color: props.mode === "dark" ? "white" : "black",
+      // }}
+      >
         <button className="btn btn-dark" onClick={handleUpClick}>
           Convert to Uppercase
         </button>
@@ -72,7 +88,12 @@ export default function Text(props) {
         </button>
       </div>
 
-      <div className="count">
+      <div
+        className="count"
+        style={{
+          color: props.mode === "dark" ? "grey" : "black",
+        }}
+      >
         <h1>your text summary</h1>
         <p>
           {text.split(" ").length} words and {text.length} characters
