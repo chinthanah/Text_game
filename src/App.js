@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
-// import Text from "./components/Text";
-import Alert from "./components/Alert";
+import Text from "./components/Text";
+// import Alert from "./components/Alert";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("dark");
@@ -29,12 +30,20 @@ function App() {
   };
   return (
     <>
-      <Navbar title="textUtils" mode={mode} toggleswitch={toggleswitch} />
-      {/* <Alert alert={alert} /> */}
-      <div className="container my-4">
-        <Text heading="Enter the text to analyze" />
-      </div>
-      <About />
+      <Router>
+        <Navbar title="textUtils" mode={mode} toggleswitch={toggleswitch} />
+        <div className="container my-4">
+          <Routes>
+            {/* Define routes using the <Route> component */}
+            <Route exact path="/about" element={<About />} />
+            <Route
+              exact
+              path="/"
+              element={<Text heading="Enter the text to analyze" mode={mode} />}
+            />
+          </Routes>
+        </div>
+      </Router>
     </>
   );
 }
